@@ -24,20 +24,23 @@ class Student:
 
     def add_subject(self, subject, grade):
         self.subjects[subject] = grade
+        print(f"{subject} has been added to the list of subjects for this student. ")
         return self.subjects
 
     def remove_subject(self, subject):
         self.subjects.pop(subject)
+        print(f"{subject} has been removed from the list of subjects for this student. ")
         return self.subjects
 
     def show_all_subjects(self):
+        print("Here are all the subjects for the student: ")
         for subject in self.subjects:
             print(subject)
 
     def overall_mark(self):
         sum_of_grades = sum(self.subjects[subject] for subject in self.subjects)
         avg_grade = round(sum_of_grades / len(self.subjects), 2)
-        return avg_grade
+        print(f"The Overall grade for this student is {avg_grade}")
 
 
 
@@ -49,12 +52,12 @@ class Student:
 
 class CFGStudent(Student):
 
-    def __init__(self, name, age, id):
-        super().__init__(name=name, age=age, id=id, stream='software', university="CFG")
+    def __init__(self, name, age, id, stream):
+        super().__init__(name=name, age=age, id=id, stream=stream, university="CFG")
 
 
 
-first_student = CFGStudent(name='Sarah', age=20, id='1234')
+first_student = CFGStudent(name='Sarah', age=20, id='1234', stream='Software')
 
 #Add subject
 first_student.add_subject('Python foundation', 60)
@@ -68,7 +71,7 @@ first_student.remove_subject('Python foundation')
 first_student.show_all_subjects()
 
 #Overall mark
-print(first_student.overall_mark())
+first_student.overall_mark()
 
 
 
