@@ -26,6 +26,7 @@ IMPORTANT:
 """
 from itertools import islice
 
+
 def generate_phrase(characters, phrase):
     characters = list(islice(characters, len(characters)))
     phrase = list(islice(phrase, len(phrase)))
